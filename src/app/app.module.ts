@@ -11,10 +11,12 @@ import { UserComponent } from './components/user/user.component';
 import { DataService } from './services/data.service';
 import { AboutComponent } from './components/about/about.component';
 import { Route } from '@angular/compiler/src/core';
+import { AccountsList } from './components/accounts-list/accounts-list.component';
+import { AccountFormComponent } from './components/account-form/account-form.component';
 
 const appRoutes: Routes = [
   {
-    path: '',
+    path: ':id',
     component: UserComponent,
   },
   {
@@ -31,7 +33,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     UserComponent,
-    AboutComponent
+    AboutComponent,
+    AccountsList,
+    AccountFormComponent
   ],
   imports: [
     BrowserModule,

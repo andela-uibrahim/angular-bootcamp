@@ -1,5 +1,7 @@
-<ul>
-    <li><a routerLink="/">User</a></li>
-    <li><a routerLink="/about">About</a></li>
-</ul>
-<router-outlet></router-outlet>
+<div class="container">
+    <h1>Personal finance</h1>
+  
+    <h2>Your accounts</h2>
+    <accounts-list [accounts]="_accounts" (delete)="removeAcc($event)"></accounts-list>
+    <app-account-form [error]="createError" (created)="createAcc($event)"> </app-account-form>
+</div>

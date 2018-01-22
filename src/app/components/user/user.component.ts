@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../../services/data.service';
+
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy {
   name:string;
   age:number;
   email:string;
@@ -15,7 +17,11 @@ export class UserComponent implements OnInit {
   posts: Post[];
   isEdit: boolean = false;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private _route: ActivatedRoute) { }
+
+  // this.paramSub =this._route.params.subscribe(params => {
+  // const id: number = +params['id]
+  //});
 
   //this is a life cycle method that runs when the component is initialized
   ngOnInit() {
@@ -31,6 +37,9 @@ export class UserComponent implements OnInit {
     this.dataService.getPosts().subscribe((posts)=> {
       this.posts = posts;
     })
+  }
+  ngOnDestroy(){
+    //this.paramSub.unsubscribe()
   }
 
   onClick() {

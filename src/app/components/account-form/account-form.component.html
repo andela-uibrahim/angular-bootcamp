@@ -1,0 +1,23 @@
+<div class="row">
+  <form class="col-md-6 col-sm-9"  (submit)="submit()" #form>
+    <h3>Add new account</h3>
+    <div class="alert alert-danger" *ngIf="error">
+      <strong>{{error}}</strong>
+    </div>
+    <div class="form-group">
+      <label for="title">Title: </label>
+      <input class="form-control" id="title" type="text" name="title" [(ngModel)]="data.title">
+    </div>
+
+    <div class="form-group">
+      <label for="desc">Description:</label>
+      <input class="form-control" id="desc" type="text" name="desc" [(ngModel)]="data.desc">
+    </div>
+
+    <div>
+      <label for="bal">Balance:</label>
+      <input id="bal" type="text" name="bal" [(ngModel)]="data.bal">
+    </div>
+    <button (click)="submit()"> Submit </button>
+  </form>
+</div>
